@@ -1,3 +1,4 @@
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -27,6 +28,7 @@ x=np.linspace(1,26,num=26)
 my_xticks = FuelData.iloc[:,8]
 ax.set_xticks(x)
 ax.set_xticklabels(my_xticks,rotation=65,fontsize=8)
+ax.xaxis.set_ticks(np.arange(1, 26, 3))
 ax.set(title='Monthly Energy Grid Output by Fuel Type (Grid-Connected)',
         ylabel ='GWh Generated',
         xlabel ='Month')   
