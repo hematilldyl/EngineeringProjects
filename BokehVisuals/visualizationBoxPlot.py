@@ -5,7 +5,7 @@ from bokeh.models.widgets import DataTable, TableColumn
 from bokeh.models import ColumnDataSource
 
 def BoxPlot(pathData="Boxplot/BoxPlot2.csv",pathTable="Boxplot/BoxPlott.csv",
-            boxes=["Air Breather On GO Station","Electrical Component","Replace MCCB1"]):
+            boxes=["A","E","R"]):
     
     #list of box titles to plot
     iterable = boxes
