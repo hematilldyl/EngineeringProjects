@@ -11,7 +11,7 @@ def IMR(data,dtable):
           -data[headers[1]].iloc[i-1]) for i in range(1,l)]
     meanI = np.mean(data[headers[1]])
     meanR = np.mean(MR[1:])
-    if l<=len(dtable):
+    try :
         #I plot
         d2 = dtable.iloc[l,1]
         UCL_I = [meanI+3*(meanR/d2)]*l
@@ -24,22 +24,22 @@ def IMR(data,dtable):
         LCL_MR = [0]*l
         CL_MR = [meanR]*l
         MR = [UCL_MR,CL_MR,LCL_MR,MR]
-    elif l>len(dtable):
-       #I plot
+        return I,MR
+    
+    except IndexError:
+        #I plot
         s = np.std(data[headers[1]])
         sMR = np.std(MR)
-        d2 = dtable.iloc[l,1]
         UCL_I = [meanI+3*s]*l
         LCL_I = [meanI-3*s]*l
         CL_I = [meanI]*l
         I = [UCL_I,CL_I,LCL_I]
         #MR plot
-        d4 = dtable.iloc[l,3]
         UCL_MR = [sMR*meanR]*l
         LCL_MR = [0]*l
         CL_MR = [meanR]*l
         MR = [UCL_MR,CL_MR,LCL_MR,MR]
-    return I,MR
+        return I,MR
    
 def XR(data,dtable):
     
